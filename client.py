@@ -57,10 +57,18 @@ if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
     # se forma la tabla
     HTML = HtmlUtils.generar_html_table_errores_imagenes(json_result)
 
-    print('numero de palabras {}'.format(len(HTML.split())))
     # envio de correos
     resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
                                    'prueba', HTML)
 
     print(resp.text)
 
+if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
+    # se forma la tabla
+    HTML = HtmlUtils.generar_html_table_errores_secuencias(json_result)
+
+    # envio de correos
+    resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
+                                   'prueba', HTML)
+
+    print(resp.text)

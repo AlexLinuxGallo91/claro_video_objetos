@@ -20,12 +20,16 @@ HEADER_SUPERHIGHLIGHT = 'superhighlight'
 HEADER_REGION = 'region'
 
 LISTA_HEADERS_IMAGES = ['superhighlight', 'region', 'image', 'title', 'group_id']
+LISTA_HEADERS_SEQUENCES = ['superhighlight', 'region', 'order', 'title', 'group_id']
 
 # HTML
 HTML_TABLE = '<table style="{}">{}</table>'
 HTML_TABLE_TR = '<tr style="{}">{}</tr>'
 HTML_TABLE_TH = '<th style="{}">{}</th>'
 HTML_TABLE_TD = '<td style="{}">{}</td>'
+
+SUBJECT_IMAGES = 'Notificación de discontinuidad en Series en Super Destacado {} de la región {}.'
+SUBJECT_SEQUENCES = 'Notificación de inconcistencia en imágenes del Super Destacado {} de la región {}.'
 
 # HTML STYLEs
 HTML_STYLE_BORDER_TABLE = 'border: 1px solid black; border-collapse: collapse;'
