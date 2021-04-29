@@ -105,6 +105,37 @@ class JsonUtils:
 
         return json_serie
 
+    @staticmethod
+    def se_presentan_urls_imagenes_corruptas(json_result:Dict):
+
+        result = False
+
+        for nodo in json_result['response']:
+            for json_error in nodo['errors']:
+                if json_error['status'] != const.CONST_SUCCESS and 'images' in json_error:
+                    len_image_errors = len(json_error['images'])
+                    result = len_image_errors > 0
+                    if result:
+                        return result
+
+        return result
+
+    @staticmethod
+    def se_presentan_secuencias_corruptas(json_result: Dict):
+
+        result = False
+
+        for nodo in json_result['response']:
+            for json_error in nodo['errors']:
+
+                if json_error['status'] != const.CONST_SUCCESS and 'sequences' in json_error:
+                    len_sequences_errors = len(json_error['sequences'])
+                    result = len_sequences_errors > 0
+                    if result:
+                        return result
+
+        return result
+
 
 
 

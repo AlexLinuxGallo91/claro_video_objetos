@@ -2,7 +2,7 @@ import json
 
 from src.procesos.proceso import Proceso
 from src.validaciones.series import ValidacionesSeries
-
+import src.constantes.argumentos_constantes as const
 
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
