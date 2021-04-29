@@ -32,7 +32,7 @@ json_error = {}
 json_error['error'] = []
 
 # DEBUG
-const.CONST_MODO_DEBUG = False
+const.CONST_MODO_DEBUG = True
 
 for completed_job_request in completed_requests:
         result = completed_job_request.result
@@ -56,7 +56,8 @@ if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
 
     # se forma la tabla
     HTML = HtmlUtils.generar_html_table_errores_imagenes(json_result)
-    # print(HTML)
+
+    print('numero de palabras {}'.format(len(HTML.split())))
     # envio de correos
     resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
                                    'prueba', HTML)
