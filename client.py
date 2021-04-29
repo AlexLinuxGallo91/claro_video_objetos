@@ -56,6 +56,7 @@ if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
 
     # se forma la tabla
     HTML = HtmlUtils.generar_html_table_errores_imagenes(json_result)
+    print(HTML)
     # envio de correos
     resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
                                    'prueba', HTML)
