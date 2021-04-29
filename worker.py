@@ -37,16 +37,19 @@ def test_claro_video(gearman_worker, gearman_job):
     if 'superhighlight' not in json_arg:
         msg_error = 'Favor de establecer el parametro superhighlight dentro del JSON'
         hubo_error = True
-
-    if 'region' not in json_arg:
+    elif 'region' not in json_arg:
         msg_error = 'Favor de establecer el parametro region dentro del JSON'
         hubo_error = True
-
-    # se establecen ambos argumentos dentro de las constantes para su uso global
-    const.ARG_REGION = json_arg['region']
-    const.ARG_SUPERHIGHLIGHT = json_arg['superhighlight']
-
-    response = Main.main()
+    else:
+        # se establecen ambos argumentos dentro de las constantes para su uso global
+        const.ARG_REGION = json_arg['region']
+        const.ARG_SUPERHIGHLIGHT = json_arg['superhighlight']
+    
+    try:
+        response = Main.main()
+    except Exception as e:
+        hubo_error = True
+        msg_error = 'Sucedio un error dentro de la ejecucion princial del Script: {}'.format(e)
 
     if hubo_error:
         const.RESPONSE_ERROR['msg'] = msg_error
@@ -57,3 +60,4 @@ def test_claro_video(gearman_worker, gearman_job):
 
 worker.register_task('test_claro_video', test_claro_video)
 worker.work()
+

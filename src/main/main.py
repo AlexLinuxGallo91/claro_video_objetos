@@ -2,6 +2,7 @@ import sys
 import src.constantes.argumentos_constantes as const
 from src.procesos.proceso import Proceso
 from src.validaciones.series import ValidacionesSeries
+from src.utils.json_utils import JsonUtils
 import json
 
 #!/usr/bin/python
@@ -50,17 +51,16 @@ class Main:
         dict_json = json.dumps(result['superhighlights'], indent = 4)
 
         return dict_json
-        #print(dict_json)
 
+if __name__ == '__main__':
+    # debug
+    const.ARG_REGION = 'mexico'
+    const.ARG_SUPERHIGHLIGHT = 'hbo'
+    const.CONST_MODO_DEBUG = True
 
-# # debug
-#
-# args = sys.argv[1]
-# argumentos_json = json.loads(args)
-#
-# const.ARG_SUPERHIGHLIGHT = argumentos_json['superhighlight']
-# const.ARG_REGION = argumentos_json['region']
-#
-# resp = Main.main()
-#
-# print(resp)
+    json_obtenido = json.loads(Main.main())
+    json_base_result = JsonUtils.generar_json_result_base(json_obtenido)
+
+    print(json.dumps(json_base_result))
+
+    # print(json.dumps(json_obtenido))
