@@ -7,8 +7,8 @@ class JsonUtils:
     @staticmethod
     def generar_json_result_base(json_result:Dict):
         json_nodo = {}
-        json_nodo['superhighlight'] = const.ARG_SUPERHIGHLIGHT
-        json_nodo['region'] = const.ARG_REGION
+        json_nodo['superhighlight'] = json_result['superhighlight']
+        json_nodo['region'] = json_result['region']
         json_nodo['status'] = const.CONST_SUCCESS
         json_nodo['errors'] = []
 

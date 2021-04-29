@@ -24,7 +24,7 @@ def test_claro_video(gearman_worker, gearman_job):
 
     hubo_error = False
     msg_error = ''
-    arg = gearman_job.data
+    arg = gearman_job.json_response_obtenido
 
     # valida que el texto sea un json
     try:
