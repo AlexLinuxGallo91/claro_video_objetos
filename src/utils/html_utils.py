@@ -24,18 +24,27 @@ class HtmlUtils:
             superhighlight = nodo['superhighlight']
             region = nodo['region']
 
-            if 'images' in nodo:
-                for json_error_image in nodo['images']:
-                    image = json_error_image['image']
-                    image_url = json_error_image['image_url']
+            if nodo['status'] != const.CONST_SUCCESS and len(nodo['errors']) > 0:
+                for nodo_error in nodo['errors']:
 
-                cadena_td_html=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
-                cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, region)
-                cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, image)
-                cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, image_url)
-                cadena_td_html=const.HTML_TABLE_TR.format(const.HTML_STYLE_BORDER_TABLE, cadena_td_html)
+                    title = nodo_error['title']
+                    group_id = nodo_error['group_id']
 
-                html_body+=cadena_td_html
+                    if 'images' in nodo_error:
+                        for json_image in nodo_error['images']:
+                            image = json_image['image']
+                            image_url = json_image['image_url']
+                            msg = json_image['msg']
+
+                            cadena_td_html=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, region)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, image)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, image_url)
+                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, title)
+                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, group_id)
+                            cadena_td_html=const.HTML_TABLE_TR.format(const.HTML_STYLE_BORDER_TABLE, cadena_td_html)
+
+                            html_body+=cadena_td_html
 
         html_body = html_headers+html_body
         html_body = const.HTML_TABLE.format(const.HTML_STYLE_BORDER_TABLE, html_body)

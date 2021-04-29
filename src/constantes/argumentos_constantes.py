@@ -19,7 +19,7 @@ HEADER_IMAGE = 'image'
 HEADER_SUPERHIGHLIGHT = 'superhighlight'
 HEADER_REGION = 'region'
 
-LISTA_HEADERS_IMAGES = ['superhighlight', 'region', 'image', 'image_url']
+LISTA_HEADERS_IMAGES = ['superhighlight', 'region', 'image', 'image_url', 'title', 'group_id']
 
 # HTML
 HTML_TABLE = '<table style="{}">{}</table>'
