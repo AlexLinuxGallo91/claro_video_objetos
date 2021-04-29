@@ -44,7 +44,7 @@ def test_claro_video(gearman_worker, gearman_job):
         # se establecen ambos argumentos dentro de las constantes para su uso global
         const.ARG_REGION = json_arg['region']
         const.ARG_SUPERHIGHLIGHT = json_arg['superhighlight']
-    
+
     try:
         response = Main.main()
     except Exception as e:
