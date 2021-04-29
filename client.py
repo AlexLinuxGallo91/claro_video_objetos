@@ -3,8 +3,10 @@ import sys
 
 from python3_gearman import GearmanClient
 
-from src.utils.json_utils import JsonUtils
+from src.utils.mail_utils import MailUtils
 from src.utils.worker_utils import WorkerUtils
+from src.utils.json_utils import JsonUtils
+
 
 gm_client = GearmanClient(['localhost:4770'])
 
@@ -41,4 +43,10 @@ json_result = {}
 json_result['response'] = lista_result_response
 
 print('{}\n'.format(json.dumps(json_result, indent = 4)))
+
+# envio de correos
+resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
+                               'prueba', json.dumps(json_result))
+
+print(resp.text)
 
