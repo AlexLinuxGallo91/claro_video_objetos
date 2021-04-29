@@ -75,8 +75,8 @@ class HtmlUtils:
                     group_id = nodo_error['group_id']
 
                     if 'sequences' in nodo_error:
-                        for json_image in nodo_error['images']:
-                            order = json_image['order']
+                        for json_sequence in nodo_error['sequences']:
+                            order = json_sequence['order']
 
                             cadena_td_html=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
                             cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, region)
