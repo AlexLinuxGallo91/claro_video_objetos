@@ -32,7 +32,7 @@ json_error = {}
 json_error['error'] = []
 
 # DEBUG
-const.CONST_MODO_DEBUG = True
+const.CONST_MODO_DEBUG = False
 
 for completed_job_request in completed_requests:
         result = completed_job_request.result
