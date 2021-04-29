@@ -49,14 +49,14 @@ json_result['response'] = lista_result_response
 json_result_texto = json.dumps(json_result, indent=4)
 json_result_texto = '<h3>{}</h3>'.format(json_result_texto)
 
-print('{}\n'.format(json_result_texto))
+# print('{}\n'.format(json_result_texto))
 
 # valida si existen imagenes corruptas, en caso de ser asi se forma una tabla HTML para su notificacion por correo
 if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
 
     # se forma la tabla
     HTML = HtmlUtils.generar_html_table_errores_imagenes(json_result)
-    print(HTML)
+    # print(HTML)
     # envio de correos
     resp = MailUtils.enviar_correo(['alexis.araujo@triara.com'], 'notificacion.itoc@triara.com',
                                    'prueba', HTML)
