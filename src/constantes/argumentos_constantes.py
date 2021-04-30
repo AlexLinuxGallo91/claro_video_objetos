@@ -33,4 +33,4 @@ SUBJECT_IMAGES = 'Notificación de inconcistencia en imágenes del Super Destaca
 
 # HTML STYLEs
 HTML_STYLE_BORDER_TABLE = 'border: 1px dotted black; border-collapse: collapse; padding: 5px;'
-HTML_STYLE_HEADER = 'border: 1px dotted black; border-collapse: collapse; background: #DEEAF6;'
+HTML_STYLE_HEADER = 'border: 1px dotted black; border-collapse: collapse; background: #DEEAF6; padding: 5px;'
