@@ -61,7 +61,7 @@ class HtmlUtils:
     @staticmethod
     def generar_html_table_errores_secuencias(json_result):
         html_body = ''
-        html_headers = HtmlUtils.generar_html_table_headers_imagenes()
+        html_headers = HtmlUtils.generar_html_table_headers_sequences()
 
         for nodo in json_result['response']:
 

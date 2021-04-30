@@ -27,7 +27,7 @@ class MailUtils:
             region = json_nodo['region']
             if json_nodo['status'] != const.CONST_SUCCESS:
                 for json_error in json_nodo['errors']:
-                    if 'images' in json_error:
+                    if 'sequences' in json_error:
                         lista_nodos_afectados.append(json_nodo['superhighlight'])
                         break
 
@@ -44,7 +44,7 @@ class MailUtils:
             region = json_nodo['region']
             if json_nodo['status'] != const.CONST_SUCCESS:
                 for json_error in json_nodo['errors']:
-                    if 'sequences' in json_error:
+                    if 'images' in json_error:
                         lista_nodos_afectados.append(json_nodo['superhighlight'])
                         break
 

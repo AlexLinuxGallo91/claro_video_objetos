@@ -19,8 +19,8 @@ HEADER_IMAGE = 'image'
 HEADER_SUPERHIGHLIGHT = 'superhighlight'
 HEADER_REGION = 'region'
 
-LISTA_HEADERS_IMAGES = ['superhighlight', 'region', 'image', 'title', 'group_id']
-LISTA_HEADERS_SEQUENCES = ['superhighlight', 'region', 'order', 'title', 'group_id']
+LISTA_HEADERS_IMAGES = ['Super Destacado', 'Region', 'Imagen', 'Titulo', 'group_id']
+LISTA_HEADERS_SEQUENCES = ['Super Destacado', 'Region', 'Orden', 'Titulo', 'group_id']
 
 # HTML
 HTML_TABLE = '<table style="{}">{}</table>'
