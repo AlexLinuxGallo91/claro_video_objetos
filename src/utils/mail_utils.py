@@ -50,5 +50,5 @@ class MailUtils:
 
         lista_nodos_afectados = list(dict.fromkeys(lista_nodos_afectados))
 
-        return const.SUBJECT_SEQUENCES.format(', '.join(lista_nodos_afectados), region.capitalize())
+        return const.SUBJECT_IMAGES.format(', '.join(lista_nodos_afectados), region.capitalize())
 
