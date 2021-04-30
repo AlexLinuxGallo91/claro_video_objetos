@@ -93,6 +93,7 @@ class JsonUtils:
 
                     if const.CONST_MODO_DEBUG:
                         status = random.choice(const.CONST_DEBUG_LISTA_STATUS)
+                        not_found = '1,2,3,4,5'
 
                     if status != const.CONST_SUCCESS:
                         json_secuencia_corrupta = {}
