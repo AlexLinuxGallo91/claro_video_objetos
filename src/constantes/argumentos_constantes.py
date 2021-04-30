@@ -32,4 +32,4 @@ SUBJECT_SEQUENCES = 'Notificación de discontinuidad en Series en Super Destacad
 SUBJECT_IMAGES = 'Notificación de inconcistencia en imágenes del Super Destacado: {} de la región {}.'
 
 # HTML STYLEs
-HTML_STYLE_BORDER_TABLE = 'border: 1px solid black; border-collapse: collapse;'
+HTML_STYLE_BORDER_TABLE = 'border: 1px dotted black; border-collapse: collapse;'
