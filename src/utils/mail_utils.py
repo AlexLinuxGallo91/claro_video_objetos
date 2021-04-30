@@ -33,7 +33,7 @@ class MailUtils:
 
         lista_nodos_afectados = list(dict.fromkeys(lista_nodos_afectados))
 
-        return const.SUBJECT_SEQUENCES.format(', '.join(lista_nodos_afectados), region)
+        return const.SUBJECT_SEQUENCES.format(', '.join(lista_nodos_afectados), region.capitalize())
 
     @staticmethod
     def subject_imagenes_dinamico(json_result_sequences: Dict):
@@ -50,5 +50,5 @@ class MailUtils:
 
         lista_nodos_afectados = list(dict.fromkeys(lista_nodos_afectados))
 
-        return const.SUBJECT_SEQUENCES.format(', '.join(lista_nodos_afectados), region)
+        return const.SUBJECT_SEQUENCES.format(', '.join(lista_nodos_afectados), region.capitalize())
 
