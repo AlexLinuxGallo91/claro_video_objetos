@@ -7,7 +7,7 @@ class HtmlUtils:
         header_html = ''
 
         for header in const.LISTA_HEADERS_IMAGES:
-            header_html+=const.HTML_TABLE_TH.format(const.HTML_STYLE_BORDER_TABLE, header)
+            header_html+=const.HTML_TABLE_TH.format(const.HTML_STYLE_HEADER, header)
 
         header_html = const.HTML_TABLE_TR.format('', header_html)
 
@@ -18,7 +18,7 @@ class HtmlUtils:
         header_html = ''
 
         for header in const.LISTA_HEADERS_SEQUENCES:
-            header_html += const.HTML_TABLE_TH.format(const.HTML_STYLE_BORDER_TABLE, header)
+            header_html += const.HTML_TABLE_TH.format(const.HTML_STYLE_HEADER, header)
 
         header_html = const.HTML_TABLE_TR.format('', header_html)
 
