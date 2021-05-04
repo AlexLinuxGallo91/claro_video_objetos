@@ -47,6 +47,8 @@ for completed_job_request in completed_requests:
             lista_result_response.append(json_response_obtenido)
         except ValueError:
             pass
+        except TypeError:
+            pass
 
 json_result = {}
 json_result['response'] = lista_result_response
