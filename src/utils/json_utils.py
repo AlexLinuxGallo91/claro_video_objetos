@@ -52,6 +52,7 @@ class JsonUtils:
         json_serie['title'] = json_result_serie['title']
         json_serie['group_id'] = json_result_serie['group_id']
         json_serie['category'] = json_result_serie['category']
+        json_serie['id_serie_ag'] = ""
         json_serie['images'] = []
         json_serie['sequences'] = []
 
@@ -77,7 +78,7 @@ class JsonUtils:
 
         if 'id_serie_ag' in json_result_serie['sequence'] and 'status' in json_result_serie['sequence']:
 
-            sequence_id_serie_ag = json_result_serie['sequence']['id_serie_ag']
+            json_serie['id_serie_ag'] = json_result_serie['sequence']['id_serie_ag']
             sequence_status = json_result_serie['sequence']['status']
 
             if const.CONST_MODO_DEBUG:

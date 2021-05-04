@@ -20,13 +20,20 @@ HEADER_SUPERHIGHLIGHT = 'superhighlight'
 HEADER_REGION = 'region'
 
 LISTA_HEADERS_IMAGES = ['Super Destacado', 'Imagen', 'Titulo', 'group_id']
-LISTA_HEADERS_SEQUENCES = ['Super Destacado', 'Temporada', 'Capitulos' ,'Titulo', 'group_id']
+LISTA_HEADERS_SEQUENCES = ['Super Destacado', 'Temporada', 'Capitulos' ,'Titulo', 'group_id', 'id_serie_ag']
 
 # HTML
+HTML_MSG_NOTIFICACION_IMAGES = '<p>Se notifica una inconsistencia de imágenes, detectada en el monitoreo interno de ' \
+                               'Triara del Servicio de Claro Video:</p><br>'
+
+HTML_MSG_NOTIFICACION_SEQUENCES= '<p>Se notifica una inconsistencia de episodios en las series detalladas, detectada ' \
+                                 'en el monitoreo interno de Triara del Servicio de Claro Video:</p><br>'
+
 HTML_TABLE = '<table style="{}">{}</table>'
 HTML_TABLE_TR = '<tr style="{}">{}</tr>'
 HTML_TABLE_TH = '<th style="{}">{}</th>'
 HTML_TABLE_TD = '<td style="{}">{}</td>'
+HTML_HREF = '<a href="{}">{}</a>'
 
 SUBJECT_SEQUENCES = 'Notificación de discontinuidad en Series en Super Destacado: {} de la región {}.'
 SUBJECT_IMAGES = 'Notificación de inconcistencia en imágenes del Super Destacado: {} de la región {}.'

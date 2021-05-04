@@ -15,7 +15,12 @@ lista_constantes_imagenes = ['SUCCESS', 'FAILED']
 lista_de_jobs = []
 contador_errores = 0
 pais_por_buscar = sys.argv[1]
-lista_correos_destinatarios = ['alexis.araujo@triara.com', 'jose.hernandez@triara.com', 'gerardo.trevino@triara.com']
+lista_correos_destinatarios = ['alexis.araujo@triara.com',
+                               'jose.hernandez@triara.com',
+                               'gerardo.trevino@triara.com'
+                               #'angel.galindo@triara.com',
+                               #'ernesto.contreras@triara.com'
+                               ]
 
 # se establece una lista con los jobs a ejecutar, donde cada job contiene la region establecida y cada uno de los
 # nodos

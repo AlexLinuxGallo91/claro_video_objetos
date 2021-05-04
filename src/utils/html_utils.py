@@ -1,4 +1,5 @@
 import src.constantes.argumentos_constantes as const
+import html
 
 class HtmlUtils:
 
@@ -32,28 +33,30 @@ class HtmlUtils:
         for nodo in json_result['response']:
 
             superhighlight = nodo['superhighlight']
-            region = nodo['region']
 
             if nodo['status'] != const.CONST_SUCCESS and len(nodo['errors']) > 0:
                 for nodo_error in nodo['errors']:
 
                     title = nodo_error['title']
                     group_id = nodo_error['group_id']
+                    id_serie_ag = nodo_error['id_serie_ag']
 
                     if 'images' in nodo_error:
                         for json_image in nodo_error['images']:
                             image = json_image['image']
+                            url = html.escape(json_image['image_url'])
 
                             cadena_td_html=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
-                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, image)
-                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, title)
-                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, group_id)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, const.HTML_HREF.format(url, image))
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, title)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, group_id)
                             cadena_td_html=const.HTML_TABLE_TR.format(const.HTML_STYLE_BORDER_TABLE, cadena_td_html)
 
                             html_body+=cadena_td_html
 
         html_body = html_headers+html_body
         html_body = const.HTML_TABLE.format(const.HTML_STYLE_BORDER_TABLE, html_body)
+        html_body = const.HTML_MSG_NOTIFICACION_IMAGES + html_body
 
         return html_body
 
@@ -65,13 +68,13 @@ class HtmlUtils:
         for nodo in json_result['response']:
 
             superhighlight = nodo['superhighlight']
-            region = nodo['region']
 
             if nodo['status'] != const.CONST_SUCCESS and len(nodo['errors']) > 0:
                 for nodo_error in nodo['errors']:
 
                     title = nodo_error['title']
                     group_id = nodo_error['group_id']
+                    id_serie_ag = nodo_error['id_serie_ag']
 
                     if 'sequences' in nodo_error:
                         for json_sequence in nodo_error['sequences']:
@@ -83,11 +86,13 @@ class HtmlUtils:
                             cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, capitulos)
                             cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, title)
                             cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, group_id)
+                            cadena_td_html+=const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, id_serie_ag)
                             cadena_td_html=const.HTML_TABLE_TR.format(const.HTML_STYLE_BORDER_TABLE, cadena_td_html)
 
                             html_body+=cadena_td_html
 
-        html_body = html_headers+html_body
+        html_body = html_headers + html_body
         html_body = const.HTML_TABLE.format(const.HTML_STYLE_BORDER_TABLE, html_body)
+        html_body = const.HTML_MSG_NOTIFICACION_SEQUENCES + html_body
 
         return html_body
