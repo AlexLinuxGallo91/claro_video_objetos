@@ -60,4 +60,3 @@ def test_claro_video(gearman_worker, gearman_job):
 
 worker.register_task('test_claro_video', test_claro_video)
 worker.work()
-
