@@ -14,13 +14,18 @@ gm_client = GearmanClient(['localhost:4770'])
 lista_constantes_imagenes = ['SUCCESS', 'FAILED']
 lista_de_jobs = []
 contador_errores = 0
-pais_por_buscar = sys.argv[1]
+pais_por_buscar = []
 lista_correos_destinatarios = ['alexis.araujo@triara.com',
                                'jose.hernandez@triara.com',
                                'gerardo.trevino@triara.com'
                                #'angel.galindo@triara.com',
                                #'ernesto.contreras@triara.com'
                                ]
+
+# verifica que se haya establecido correctamente el argumento (pais) por probar
+if len(sys.argv) < 2:
+    print('Favor de establecer el parametro (region) por probar.')
+    sys.exit(1)
 
 # se establece una lista con los jobs a ejecutar, donde cada job contiene la region establecida y cada uno de los
 # nodos
