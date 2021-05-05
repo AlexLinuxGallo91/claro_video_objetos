@@ -3,11 +3,11 @@ import sys
 
 from python3_gearman import GearmanClient
 
+import src.constantes.argumentos_constantes as const
+from src.utils.html_utils import HtmlUtils
+from src.utils.json_utils import JsonUtils
 from src.utils.mail_utils import MailUtils
 from src.utils.worker_utils import WorkerUtils
-from src.utils.json_utils import JsonUtils
-from src.utils.html_utils import HtmlUtils
-import src.constantes.argumentos_constantes as const
 
 gm_client = GearmanClient(['localhost:4770'])
 
