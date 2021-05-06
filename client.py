@@ -12,9 +12,9 @@ from src.utils.worker_utils import WorkerUtils
 gm_client = GearmanClient(['localhost:4770'])
 
 lista_constantes_imagenes = ['SUCCESS', 'FAILED']
+pais_por_verificar = ''
 lista_de_jobs = []
 contador_errores = 0
-pais_por_buscar = []
 lista_correos_destinatarios = ['alexis.araujo@triara.com',
                                'jose.hernandez@triara.com',
                                'gerardo.trevino@triara.com'
@@ -27,9 +27,11 @@ if len(sys.argv) < 2:
     print('Favor de establecer el parametro (region) por probar.')
     sys.exit(1)
 
+pais_por_verificar = sys.argv[1]
+
 # se establece una lista con los jobs a ejecutar, donde cada job contiene la region establecida y cada uno de los
 # nodos
-lista_de_jobs = WorkerUtils.establecer_lista_de_jobs(pais_por_buscar)
+lista_de_jobs = WorkerUtils.establecer_lista_de_jobs(pais_por_verificar)
 
 # se cargan o mandan los jobs al worker
 submitted_requests = gm_client.submit_multiple_jobs(lista_de_jobs, background=False, wait_until_complete=False)
