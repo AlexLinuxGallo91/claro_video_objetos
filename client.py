@@ -18,8 +18,9 @@ contador_errores = 0
 lista_correos_destinatarios = ['alexis.araujo@triara.com',
                                'jose.hernandez@triara.com',
                                'gerardo.trevino@triara.com'
-                               #'angel.galindo@triara.com',
-                               #'ernesto.contreras@triara.com'
+                               'angel.galindo@triara.com',
+                               'supervisor.ccsc@triara.com',
+                               'noc.operaciones@triara.com'
                                ]
 
 # verifica que se haya establecido correctamente el argumento (pais) por probar
@@ -44,7 +45,7 @@ json_error = {}
 json_error['error'] = []
 
 # DEBUG
-const.CONST_MODO_DEBUG = True
+const.CONST_MODO_DEBUG = False
 
 for completed_job_request in completed_requests:
         result = completed_job_request.result

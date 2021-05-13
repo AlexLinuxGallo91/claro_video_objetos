@@ -21,8 +21,8 @@ if __name__ == '__main__':
         'alexis.araujo@triara.com',
         'jose.hernandez@triara.com',
         'gerardo.trevino@triara.com'
-        #'angel.galindo@triara.com',
-        #'ernesto.contreras@triara.com'
+        # 'angel.galindo@triara.com',
+        # 'ernesto.contreras@triara.com'
     ]
 
     #se itera en cada uno de los nodos
