@@ -32,6 +32,7 @@ if __name__ == '__main__':
         try:
             response = Main.main()
             json_response_obtenido = json.loads(response)
+            print(json.dumps(json_response_obtenido))
             # json_response_obtenido = JsonUtils.generar_json_result_base(json_response_obtenido)
             # lista_result_response.append(json_response_obtenido)
         except ValueError:

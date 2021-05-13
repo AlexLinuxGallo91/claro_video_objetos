@@ -80,12 +80,11 @@ class ValidacionesSeries:
                 'seasons' : serieValidate['seasons'],
                 'name_serie': name_serie
             }
-        # DEBUG
+
+        # se establece nombre de la serie en el json principal, con el fin de obtenerlo y poder mostrarlo como
+        # prueba en las notificaciones por correo
         name_serie = ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP']
         sequence['name_serie'] = name_serie
-        time.sleep(3)
-
-        print(json.dumps(sequence))
 
         return sequence
 
