@@ -53,7 +53,7 @@ class ValidacionesSeries:
             # Valida si la respuesta es SUCCESS
             response = requests.get(url + groupId)
             responseJson = response.json()
-            return (responseJson['_source']['INFO_SERIE'][0]['ID_SERIE_AG'])
+            return (responseJson['_source']['INFO_SERIE'][0])
         except requests.exceptions.RequestException:
             return 0
 
@@ -64,7 +64,9 @@ class ValidacionesSeries:
     def sequenceID(sequence):
         # Series = 1
         if int(sequence['category']) == 1:
-            id_serie_ag = ValidacionesSeries.getIDAG(sequence['group_id'])
+            # id_serie_ag = ValidacionesSeries.getIDAG(sequence['group_id'])
+            id_serie_ag = ValidacionesSeries.getIDAG(sequence['group_id'])['ID_SERIE_AG']
+            name_serie = ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP']
             serieValidate = ValidacionesSeries.serieSequence(Peticiones.getParams(id_serie_ag))
             # Status general para la secuencia de capitulos por temporada.
             dictStatus = [x['status'] for x in serieValidate['seasons'] if x['status'] == 'FAIL']
@@ -72,7 +74,8 @@ class ValidacionesSeries:
             sequence['sequence'] = {
                 'id_serie_ag' : id_serie_ag,
                 'status' : status,
-                'seasons' : serieValidate['seasons']
+                'seasons' : serieValidate['seasons'],
+                'name_serie': name_serie
             }
         return sequence
 

@@ -50,3 +50,4 @@ class Main:
         dict_json = json.dumps(result['superhighlights'], indent = 4)
 
         return dict_json
+

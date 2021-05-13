@@ -55,6 +55,10 @@ class JsonUtils:
         json_serie['id_serie_ag'] = ""
         json_serie['images'] = []
         json_serie['sequences'] = []
+        json_serie['name_serie'] = ''
+
+        if 'name_serie' in json_result_serie['sequence']:
+            json_serie['name_serie'] = json_result_serie['sequence']['name_serie']
 
         # se realiza las validaciones de las imagenes de las series, en caso de que alguna imagen tenga error o
         # no responda correctamente, se adjuntara a la lista de imagenes con errores
@@ -75,7 +79,6 @@ class JsonUtils:
 
         # se realiza las validaciones de las secuencias de capitulos en cada una de las series, en caso de
         # presentarse una discontinuidad de capitulos, se adjuntara a la lista de secuencias con errores
-
         if 'id_serie_ag' in json_result_serie['sequence'] and 'status' in json_result_serie['sequence']:
 
             json_serie['id_serie_ag'] = json_result_serie['sequence']['id_serie_ag']
