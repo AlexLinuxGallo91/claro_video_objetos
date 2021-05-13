@@ -85,10 +85,10 @@ class HtmlUtils:
                         for json_sequence in nodo_error['sequences']:
                             order = json_sequence['order']
                             capitulos = json_sequence['notFound']
-                            name_serie = nodo_error['name_serie']
+                            name_serie = ''
 
-                            if not name_serie:
-                                name_serie = 'no trae nada'
+                            if 'name_serie' in nodo_error:
+                                name_serie = nodo_error['name_serie']
 
                             cadena_td_html = const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
                             cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, order)
