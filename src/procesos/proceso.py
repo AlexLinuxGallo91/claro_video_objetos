@@ -6,4 +6,8 @@ class Proceso:
     @staticmethod
     def validateProcess(superhighlights):
         highlights = ValidacionesImagenes.validateUrlImage(superhighlights)
+
+        # debug
+        print(highlights)
+
         return ValidacionesSeries.validateSequence(highlights)
