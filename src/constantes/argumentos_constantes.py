@@ -20,7 +20,7 @@ HEADER_SUPERHIGHLIGHT = 'superhighlight'
 HEADER_REGION = 'region'
 
 LISTA_HEADERS_IMAGES = ['Super Destacado', 'Imagen', 'Titulo', 'group_id']
-LISTA_HEADERS_SEQUENCES = ['Super Destacado', 'Serie', 'Temporada', 'Capitulos' ,'Titulo', 'group_id', 'id_serie_ag']
+LISTA_HEADERS_SEQUENCES = ['Super Destacado', 'Temporada', 'Capitulos' ,'Titulo serie', 'group_id', 'id_serie_ag']
 
 # HTML
 HTML_MSG_NOTIFICACION_IMAGES = '<p>Se notifica una inconsistencia de imágenes, detectada en el monitoreo interno de ' \
