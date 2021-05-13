@@ -77,6 +77,8 @@ class ValidacionesSeries:
                 'seasons' : serieValidate['seasons'],
                 'name_serie': name_serie
             }
+        # DEBUG
+        print(ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP'])
         return sequence
 
     # ----------------------------------------------
