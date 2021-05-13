@@ -78,8 +78,11 @@ class HtmlUtils:
                     group_id = nodo_error['group_id']
                     id_serie_ag = nodo_error['id_serie_ag']
                     name_serie = nodo_error['name_serie']
+                    category = nodo_error['category']
 
-                    if 'sequences' in nodo_error:
+                    # se consideran solo las secuencias que sean categoria 1 (sean series) y que en realidad tengan
+                    # secuencias de capitulos de cada temporada
+                    if 'sequences' in nodo_error and category == '1':
                         for json_sequence in nodo_error['sequences']:
                             order = json_sequence['order']
                             capitulos = json_sequence['notFound']
