@@ -1,8 +1,11 @@
 import concurrent.futures as futures
+import json
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import src.constantes.argumentos_constantes as const
+import time
 
 from src.peticiones.peticiones import Peticiones
 
@@ -78,7 +81,11 @@ class ValidacionesSeries:
                 'name_serie': name_serie
             }
         # DEBUG
-        print(ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP'])
+        name_serie = ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP']
+        time.sleep(3)
+
+        print(json.dumps(sequence))
+
         return sequence
 
     # ----------------------------------------------
