@@ -82,6 +82,7 @@ class ValidacionesSeries:
             }
         # DEBUG
         name_serie = ValidacionesSeries.getIDAG(sequence['group_id'])['SERIE_NOMBRE_ESP']
+        sequence['name_serie'] = name_serie
         time.sleep(3)
 
         print(json.dumps(sequence))
