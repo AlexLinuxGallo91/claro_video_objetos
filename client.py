@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 
 from python3_gearman import GearmanClient
 
@@ -50,7 +51,8 @@ for completed_job_request in completed_requests:
         result = completed_job_request.result
         try:
             json_response_obtenido = json.loads(result)
-            # print(json.dumps(json_response_obtenido, indent=2))
+            print(json.dumps(json_response_obtenido, indent=2))
+            time.sleep(4)
             # json_response_obtenido = JsonUtils.generar_json_result_base(json_response_obtenido)
             # lista_result_response.append(json_response_obtenido)
         except ValueError:
