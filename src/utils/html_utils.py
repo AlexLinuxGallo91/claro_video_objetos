@@ -77,7 +77,6 @@ class HtmlUtils:
                     title = nodo_error['title']
                     group_id = nodo_error['group_id']
                     id_serie_ag = nodo_error['id_serie_ag']
-                    name_serie = nodo_error['name_serie']
                     category = nodo_error['category']
 
                     # se consideran solo las secuencias que sean categoria 1 (sean series) y que en realidad tengan
@@ -86,6 +85,10 @@ class HtmlUtils:
                         for json_sequence in nodo_error['sequences']:
                             order = json_sequence['order']
                             capitulos = json_sequence['notFound']
+                            name_serie = nodo_error['name_serie']
+
+                            if not name_serie:
+                                name_serie = 'no trae nada'
 
                             cadena_td_html = const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, superhighlight)
                             cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, order)
@@ -93,7 +96,7 @@ class HtmlUtils:
                             cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, title)
                             cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, group_id)
                             cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, id_serie_ag)
-                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, 'holas')
+                            cadena_td_html += const.HTML_TABLE_TD.format(const.HTML_STYLE_BORDER_TABLE, name_serie)
                             cadena_td_html = const.HTML_TABLE_TR.format(const.HTML_STYLE_BORDER_TABLE, cadena_td_html)
 
                             html_body += cadena_td_html
