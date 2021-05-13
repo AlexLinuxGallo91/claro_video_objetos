@@ -50,8 +50,9 @@ for completed_job_request in completed_requests:
         result = completed_job_request.result
         try:
             json_response_obtenido = json.loads(result)
-            json_response_obtenido = JsonUtils.generar_json_result_base(json_response_obtenido)
-            lista_result_response.append(json_response_obtenido)
+            print(json.dumps(json_response_obtenido, indent=2))
+            # json_response_obtenido = JsonUtils.generar_json_result_base(json_response_obtenido)
+            # lista_result_response.append(json_response_obtenido)
         except ValueError:
             pass
         except TypeError:
@@ -61,7 +62,7 @@ json_result = {}
 json_result['response'] = lista_result_response
 json_result_texto = json.dumps(json_result, indent=4)
 
-print('{}\n'.format(json_result_texto))
+# print('{}\n'.format(json_result_texto))
 
 # valida si existen imagenes corruptas, en caso de ser asi se forma una tabla HTML para su notificacion por correo
 # if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
