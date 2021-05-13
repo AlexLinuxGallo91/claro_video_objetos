@@ -36,7 +36,7 @@ HTML_TABLE_TD = '<td style="{}">{}</td>'
 HTML_HREF = '<a href="{}">{}</a>'
 
 SUBJECT_SEQUENCES = 'Notificación de discontinuidad en Series en Super Destacado: {} de la región {}.'
-SUBJECT_IMAGES = 'Notificación de inconcistencia en imágenes del Super Destacado: {} de la región {}.'
+SUBJECT_IMAGES = 'Notificación de inconsistencia en imágenes del Super Destacado: {} de la región {}.'
 
 # HTML STYLEs
 HTML_STYLE_BORDER_TABLE = 'border: 1px dotted black; border-collapse: collapse; padding: 5px;'
