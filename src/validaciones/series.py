@@ -75,9 +75,9 @@ class ValidacionesSeries:
             dictStatus = [x['status'] for x in serieValidate['seasons'] if x['status'] == 'FAIL']
             status = ('FAIL' if ('FAIL' in dictStatus) else 'SUCCESS')
             sequence['sequence'] = {
-                'id_serie_ag' : id_serie_ag,
-                'status' : status,
-                'seasons' : serieValidate['seasons'],
+                'id_serie_ag': id_serie_ag,
+                'status': status,
+                'seasons': serieValidate['seasons'],
                 'name_serie': name_serie
             }
 
@@ -113,7 +113,8 @@ class ValidacionesSeries:
     @staticmethod
     def serieSequence(jsonParams):
         try:
-            url = 'http://10.10.0.206/info_serie.php'
+            # url = 'http://10.10.0.206/info_serie.php'
+            url = 'http://10.11.91.213/consistencia_series_plataforma.php'
             # Consultar get request.
             response = requests.get(url, params=jsonParams)
             # Validar que el codigo de respuesta sea 200.
