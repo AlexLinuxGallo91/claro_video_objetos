@@ -4,6 +4,8 @@ import sys
 from python3_gearman import GearmanClient
 
 import src.constantes.argumentos_constantes as const
+from os.path import join
+import logging
 from src.utils.html_utils import HtmlUtils
 from src.utils.json_utils import JsonUtils
 from src.utils.mail_utils import MailUtils
@@ -29,6 +31,13 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 pais_por_verificar = sys.argv[1]
+
+logging.basicConfig(level=logging.INFO, filemode='a',
+                            filename=join(const.CONF_ROOT_DIR_PROJECT, 'log_claro_video.log'),
+                            format=const.LOG_FORMAT,
+                            datefmt='%d-%m-%Y %H:%M:%S')
+
+logger = logging.getLogger(__name__)
 
 # se establece una lista con los jobs a ejecutar, donde cada job contiene la region establecida y cada uno de los
 # nodos
@@ -69,10 +78,12 @@ if JsonUtils.se_presentan_urls_imagenes_corruptas(json_result):
     HTML = HtmlUtils.generar_html_table_errores_imagenes(json_result)
     subject = MailUtils.subject_imagenes_dinamico(json_result)
     resp = MailUtils.enviar_correo(lista_correos_destinatarios, 'notificacion.itoc@triara.com',subject, HTML)
+    logger.info(resp.text)
     print(resp.text)
 
 if JsonUtils.se_presentan_secuencias_corruptas(json_result):
     subject = MailUtils.subject_sequences_dinamico(json_result)
     HTML = HtmlUtils.generar_html_table_errores_secuencias(json_result)
     resp = MailUtils.enviar_correo(lista_correos_destinatarios, 'notificacion.itoc@triara.com', subject, HTML)
+    logger.info(resp.text)
     print(resp.text)
