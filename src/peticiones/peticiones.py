@@ -31,6 +31,7 @@ from urllib.request import urlopen
 # import requests module.
 import requests
 from PIL import Image
+import logging
 
 
 class Peticiones:
@@ -57,6 +58,7 @@ class Peticiones:
     # ------------------------------------------------------------
     @staticmethod
     def load_url(url, timeout):
+        logger = logging.getLogger(__name__)
         verify = 'FAIL'
         request = 'FAIL'
         try:
@@ -67,9 +69,9 @@ class Peticiones:
                     img.verify()  # verify that it is, in fact an image
                     verify = 'SUCCESS'
                 except (IOError, SyntaxError) as e:
-                    print(e)
+                    logger.error('error en la siguiente url: {}, {}'.format(url, e))
         except requests.exceptions.RequestException as e:
-            print(e)
+            logger.error('error en la siguiente url: {}, {}'.format(url, e))
 
         # Result final
         verifyImage = {

@@ -1,3 +1,6 @@
+from os import path
+from pathlib import Path as path_parent
+
 ARG_REGION = ''
 ARG_SUPERHIGHLIGHT = ''
 
@@ -41,3 +44,6 @@ SUBJECT_IMAGES = 'Notificación de inconsistencia en imágenes del Super Destaca
 # HTML STYLEs
 HTML_STYLE_BORDER_TABLE = 'border: 1px dotted black; border-collapse: collapse; padding: 5px;'
 HTML_STYLE_HEADER = 'border: 1px dotted black; border-collapse: collapse; background: #DEEAF6; padding: 5px;'
+
+CONF_ROOT_DIR_PROJECT = path_parent(path.abspath(__file__)).parent.parent.parent
+LOG_FORMAT = '%(asctime)s :: %(levelname)s: %(message)s'

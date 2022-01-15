@@ -49,7 +49,7 @@ def test_claro_video(gearman_worker, gearman_job):
         response = Main.main()
     except Exception as e:
         hubo_error = True
-        msg_error = 'Sucedio un error dentro de la ejecucion princial del Script: {}'.format(e)
+        msg_error = 'Sucedio un error dentro de la ejecucion principal del Script: {}'.format(e)
 
     if hubo_error:
         const.RESPONSE_ERROR['msg'] = msg_error

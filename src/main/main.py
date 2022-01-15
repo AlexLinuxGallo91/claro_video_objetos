@@ -1,10 +1,12 @@
 import json
-
+import logging
 from src.procesos.proceso import Proceso
 from src.validaciones.series import ValidacionesSeries
+from src.constantes import argumentos_constantes as const
+from os.path import join
 
 
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding: utf-8 -*-
 
 #############################################################################################################################
@@ -39,15 +41,20 @@ class Main:
     # -------------------------s
     @staticmethod
     def main():
+        # se inicializa el logger
+        logging.basicConfig(level=logging.INFO, filemode='a',
+                            filename=join(const.CONF_ROOT_DIR_PROJECT, 'log_claro_video.log'),
+                            format=const.LOG_FORMAT,
+                            datefmt='%d-%m-%Y %H:%M:%S')
+
         # Datos iniciales del superhighlight
         superhighlights = ValidacionesSeries.jsonSuperhighlight(ValidacionesSeries.getParams())
         # Filtra las categorias para mostrar las que se necesitan. 0 = Ninguno, 1 = Series, 2 = Peliculas, 3 = Otros
         superhighlights['superhighlights']['response'] = [x for x in superhighlights['superhighlights']['response'] if
-                                                          int(x['category']) in [0,1,2,3]]
+                                                          int(x['category']) in [0, 1, 2, 3]]
         # Inicia las pruebas de validacion.
         result = Proceso.validateProcess(superhighlights)
         # Convierte el resultado en salida JSON
-        dict_json = json.dumps(result['superhighlights'], indent = 4)
+        dict_json = json.dumps(result['superhighlights'], indent=4)
 
         return dict_json
-
